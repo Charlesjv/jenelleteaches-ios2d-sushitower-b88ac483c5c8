@@ -30,25 +30,44 @@ class SushiPiece: SKSpriteNode {
 //        self.texture = SKSpriteNode(imageNamed: "roll")
 
         
+        
+        
         self.stick = SKSpriteNode(imageNamed: "chopstick")
         
         let pos = Int.random(in: 1...2)
         
+        
+        if(pos == 0){
+            
+            self.stickPosition = ""
+            
+        }
         if(pos == 1){
             
-            self.stick.position.x = self.position.x + 50
+            self.stick.position.x = self.position.x + 100
             self.stick.position.y = self.position.y - 10
+            self.stickPosition = "right"
+            
+            
+            let facingRight = SKAction.scaleX(to: -1, duration: 0)
+            self.stick.run(facingRight)
+            
+              addChild(self.stick)
             
         }else if(pos == 2){
-            self.stick.position.x = self.position.x - 50
+            self.stick.position.x = self.position.x - 100
             self.stick.position.y = self.position.y - 10
+            
+            self.stickPosition = "left"
+            
+              addChild(self.stick)
         }
         
         
         
       
         
-        addChild(self.stick)
+      
     }
     
     // Required nonsense

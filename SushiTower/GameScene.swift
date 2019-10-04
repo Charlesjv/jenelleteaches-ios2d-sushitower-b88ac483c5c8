@@ -106,14 +106,16 @@ class GameScene: SKScene {
         
         if(chopsticksPosition == 1){
            
-            chopsticks.position.x = sushi.position.x + 100
+            chopsticks.position.x = sushi.position.x + 160
             chopsticks.position.y = sushi.position.y - 10
             
             self.chopstickPosition.append("right")
+            
+         
           
             
         }else if(chopsticksPosition == 2){
-            chopsticks.position.x = sushi.position.x - 100
+            chopsticks.position.x = sushi.position.x - 130
             chopsticks.position.y = sushi.position.y - 10
             chopsticks.xScale = -1
             
