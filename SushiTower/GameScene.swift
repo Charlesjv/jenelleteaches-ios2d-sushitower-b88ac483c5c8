@@ -17,6 +17,10 @@ class GameScene: SKScene {
    let sushiBase = SKSpriteNode(imageNamed: "roll")
     var chopsticks = SKSpriteNode()
     var sushi = SKSpriteNode()
+    
+    
+    var sushiTestPiece: SushiPiece = SushiPiece()
+    
     var chopstickPosition:[String] = []
     var catPosition = "left"
     
@@ -30,6 +34,14 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         // add background
+        
+        
+        
+        sushiTestPiece.position.x = 100;
+        sushiTestPiece.position.y = 600;
+        addChild(sushiTestPiece)
+        
+        
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
@@ -252,7 +264,7 @@ class GameScene: SKScene {
             firstChopsticks?.removeFromParent()
             self.chopsticksArray.remove(at: 0)
             
-            self.chopstickPosition.remove(at: 0)
+//            self.chopstickPosition.remove(at: 0)
             
             for piece in chopsticksArray{
                 piece.position.y = piece.position.y - SUSHI_GAP_WIDTH

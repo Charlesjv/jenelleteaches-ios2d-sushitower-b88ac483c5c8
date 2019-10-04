@@ -13,6 +13,12 @@ import SpriteKit
 // Used to represent a piece of sushi in the tower.
 class SushiPiece: SKSpriteNode {
     
+    var stick:SKSpriteNode!
+    var stickPosition: String = ""
+    
+   
+    
+    
     // MARK: Variables
     // --------------------------------
     
@@ -21,6 +27,15 @@ class SushiPiece: SKSpriteNode {
     // --------------------------------
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
+//        self.texture = SKSpriteNode(imageNamed: "roll")
+//
+        
+        
+        self.stick = SKSpriteNode(imageNamed: "chopstick")
+        self.stick.position.x = 0
+        self.stick.position.y = 0
+        
+        addChild(self.stick)
     }
     
     // Required nonsense
