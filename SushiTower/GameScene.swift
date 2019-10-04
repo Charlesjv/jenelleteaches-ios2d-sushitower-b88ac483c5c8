@@ -18,6 +18,13 @@ class GameScene: SKScene {
     var chopsticks = SKSpriteNode()
     var sushi = SKSpriteNode()
     
+    
+    let lifeLabel = SKLabelNode(text:"Lives: ")
+    let scoreLabel = SKLabelNode(text: "Score: ")
+    
+    var lives = 0
+    var score = 0
+    
 //
 //    var sushiTestPiece: SushiPiece = SushiPiece()
     
@@ -54,6 +61,18 @@ class GameScene: SKScene {
         addChild(cat)
         
         
+        self.scoreLabel.position.x = 100
+        self.scoreLabel.position.y = size.height - 100
+        self.scoreLabel.fontName = "Avenir"
+        self.scoreLabel.fontSize = 65
+        addChild(scoreLabel)
+        
+        
+        self.lifeLabel.position.x = 100
+        self.lifeLabel.position.y = size.height - 150
+        self.lifeLabel.fontName = "Avenir"
+        self.lifeLabel.fontSize = 40
+        addChild(lifeLabel)
         // Adding chopsticks to the GameScene
         
        
@@ -139,6 +158,9 @@ class GameScene: SKScene {
                 print("Stick Position = \(firstChopstick)")
                 print("Conclusion = LOSE")
                 print("------")
+                self.lives = self.lives - 1
+                self.lifeLabel.text = "Lives  \(self.lives)"
+                
             }
             
        
@@ -148,6 +170,8 @@ class GameScene: SKScene {
                                 print("Stick Position = \(firstChopstick)")
                                 print("Conclusion = WIN")
                                 print("------")
+               self.score = self.score + 1
+                self.scoreLabel.text = "Lives  \(self.score)"
                         }
         }
         
