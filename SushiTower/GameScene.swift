@@ -69,10 +69,7 @@ class GameScene: SKScene {
         for _ in 0...5{
             self.spawnSushi()
         }
-        
-//        for i in 0...5 {
-//        print("\(self.chopstickPosition[i])")
-//                    }
+
     }
     
     
@@ -83,50 +80,6 @@ class GameScene: SKScene {
         
 
         
-        if(self.sushiTower.count == 0){
-            
-            sushi.position.y = sushiBase.position.y + SUSHI_GAP_WIDTH
-            sushi.position.x = self.size.width * 0.5
-        }
-        else{
-            let previousSushi = sushiTower[self.sushiTower.count - 1 ]
-            sushi.position.y = previousSushi.position.y + SUSHI_GAP_WIDTH
-            sushi.position.x = self.size.width * 0.5
-        }
-        
-        addChild(sushi)
-        self.sushiTower.append(sushi as! SushiPiece)
-        
-        
-         chopsticks = SKSpriteNode(imageNamed: "chopstick")
-        
-        // Random position for chopsticks
-        
-        let chopsticksPosition = Int.random(in: 0...2)
-        
-        if(chopsticksPosition == 1){
-           
-            chopsticks.position.x = sushi.position.x + 160
-            chopsticks.position.y = sushi.position.y - 10
-            
-            self.chopstickPosition.append("right")
-            
-         
-          
-            
-        }else if(chopsticksPosition == 2){
-            chopsticks.position.x = sushi.position.x - 130
-            chopsticks.position.y = sushi.position.y - 10
-            chopsticks.xScale = -1
-            
-            self.chopstickPosition.append("left")
-            
-        }
-        
-
-//
-//        addChild(chopsticks)
-        self.chopsticksArray.append(chopsticks)
         
         
     }
@@ -177,30 +130,31 @@ class GameScene: SKScene {
             //1. if CAT and STICK are on the same sidde - OKAY ,keep going
             //2. if CAT and STICK are on the opposite sides - YOU LOSE
             
-            let firstChopstick = self.chopstickPosition[0]
+            let firstChopstick:SushiPiece = self.sushiTower[0]
+            let chopstickPosition = firstChopstick.stickPosition
             
-            if (catPosition == "left" && firstChopstick == "left") {
+            if (catPosition == "left" && chopstickPosition == "left") {
                           // you lose
                             print("Cat Position = \(catPosition)")
                                 print("Stick Position = \(firstChopstick)")
                                 print("Conclusion = LOSE")
                                 print("------")
                        }
-                    else if (catPosition == "right" && firstChopstick == "right") {
+                    else if (catPosition == "right" && chopstickPosition == "right") {
                             // you lose
                                 print("Cat Position = \(catPosition)")
                                 print("Stick Position = \(firstChopstick)")
                                 print("Conclusion = LOSE")
                                 print("------")
                         }
-                    else if (catPosition == "left" && firstChopstick == "right") {
+                    else if (catPosition == "left" && chopstickPosition == "right") {
                             // you win
                                 print("Cat Position = \(catPosition)")
                                 print("Stick Position = \(firstChopstick)")
                                 print("Conclusion = WIN")
                                 print("------")
                         }
-                    else if (catPosition == "right" && firstChopstick == "left") {
+                    else if (catPosition == "right" && chopstickPosition == "left") {
                             // you win
                                 print("Cat Position = \(catPosition)")
                                 print("Stick Position = \(firstChopstick)")
@@ -267,10 +221,7 @@ class GameScene: SKScene {
             self.chopsticksArray.remove(at: 0)
             
 //            self.chopstickPosition.remove(at: 0)
-            
-            for piece in chopsticksArray{
-                piece.position.y = piece.position.y - SUSHI_GAP_WIDTH
-            }
+       
         }
     
     }
