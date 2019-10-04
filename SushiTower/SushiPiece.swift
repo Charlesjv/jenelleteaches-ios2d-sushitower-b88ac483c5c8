@@ -28,12 +28,25 @@ class SushiPiece: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
 //        self.texture = SKSpriteNode(imageNamed: "roll")
-//
-        
+
         
         self.stick = SKSpriteNode(imageNamed: "chopstick")
-        self.stick.position.x = 0
-        self.stick.position.y = 0
+        
+        let pos = Int.random(in: 1...2)
+        
+        if(pos == 1){
+            
+            self.stick.position.x = self.position.x + 50
+            self.stick.position.y = self.position.y - 10
+            
+        }else if(pos == 2){
+            self.stick.position.x = self.position.x - 50
+            self.stick.position.y = self.position.y - 10
+        }
+        
+        
+        
+      
         
         addChild(self.stick)
     }

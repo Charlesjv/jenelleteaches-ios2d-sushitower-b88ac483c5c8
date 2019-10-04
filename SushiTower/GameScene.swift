@@ -18,15 +18,15 @@ class GameScene: SKScene {
     var chopsticks = SKSpriteNode()
     var sushi = SKSpriteNode()
     
-    
-    var sushiTestPiece: SushiPiece = SushiPiece()
+//
+//    var sushiTestPiece: SushiPiece = SushiPiece()
     
     var chopstickPosition:[String] = []
     var catPosition = "left"
     
     
     
-    var sushiTower:[SKSpriteNode] = []
+    var sushiTower:[SushiPiece] = []
     var chopsticksArray:[SKSpriteNode] = []
       let SUSHI_GAP_WIDTH:CGFloat = 80;
     
@@ -37,9 +37,9 @@ class GameScene: SKScene {
         
         
         
-        sushiTestPiece.position.x = 100;
-        sushiTestPiece.position.y = 600;
-        addChild(sushiTestPiece)
+//        sushiTestPiece.position.x = 100;
+//        sushiTestPiece.position.y = 600;
+//        addChild(sushiTestPiece)
         
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -79,7 +79,7 @@ class GameScene: SKScene {
     func spawnSushi(){
         // 1.Make a sushi
         // 2.position sushi 10px above the previous one
-        sushi = SKSpriteNode(imageNamed: "roll")
+        sushi = SushiPiece(imageNamed: "roll")
         
 
         
@@ -95,7 +95,7 @@ class GameScene: SKScene {
         }
         
         addChild(sushi)
-        self.sushiTower.append(sushi)
+        self.sushiTower.append(sushi as! SushiPiece)
         
         
          chopsticks = SKSpriteNode(imageNamed: "chopstick")
@@ -106,14 +106,14 @@ class GameScene: SKScene {
         
         if(chopsticksPosition == 1){
            
-            chopsticks.position.x = sushi.position.x - 100
+            chopsticks.position.x = sushi.position.x + 100
             chopsticks.position.y = sushi.position.y - 10
             
             self.chopstickPosition.append("right")
           
             
         }else if(chopsticksPosition == 2){
-            chopsticks.position.x = sushi.position.x + 100
+            chopsticks.position.x = sushi.position.x - 100
             chopsticks.position.y = sushi.position.y - 10
             chopsticks.xScale = -1
             
@@ -122,8 +122,8 @@ class GameScene: SKScene {
         }
         
 
-        
-        addChild(chopsticks)
+//
+//        addChild(chopsticks)
         self.chopsticksArray.append(chopsticks)
         
         
