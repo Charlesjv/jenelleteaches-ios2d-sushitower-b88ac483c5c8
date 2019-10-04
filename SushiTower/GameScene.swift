@@ -133,36 +133,22 @@ class GameScene: SKScene {
             let firstChopstick:SushiPiece = self.sushiTower[0]
             let chopstickPosition = firstChopstick.stickPosition
             
-            if (catPosition == "left" && chopstickPosition == "left") {
-                          // you lose
-                            print("Cat Position = \(catPosition)")
-                                print("Stick Position = \(firstChopstick)")
-                                print("Conclusion = LOSE")
-                                print("------")
-                       }
-                    else if (catPosition == "right" && chopstickPosition == "right") {
-                            // you lose
-                                print("Cat Position = \(catPosition)")
-                                print("Stick Position = \(firstChopstick)")
-                                print("Conclusion = LOSE")
-                                print("------")
-                        }
-                    else if (catPosition == "left" && chopstickPosition == "right") {
-                            // you win
-                                print("Cat Position = \(catPosition)")
-                                print("Stick Position = \(firstChopstick)")
-                                print("Conclusion = WIN")
-                                print("------")
-                        }
-                    else if (catPosition == "right" && chopstickPosition == "left") {
-                            // you win
-                                print("Cat Position = \(catPosition)")
-                                print("Stick Position = \(firstChopstick)")
-                                print("Conclusion = WIN")
-                                print("------")
-                        }
-          
             
+            if(catPosition == chopstickPosition){
+                print("Cat Position = \(catPosition)")
+                print("Stick Position = \(firstChopstick)")
+                print("Conclusion = LOSE")
+                print("------")
+            }
+            
+       
+                    else if (catPosition != chopstickPosition) {
+                            // you win
+                                print("Cat Position = \(catPosition)")
+                                print("Stick Position = \(firstChopstick)")
+                                print("Conclusion = WIN")
+                                print("------")
+                        }
         }
         
         else if (mousePosition.x > middleOfScreen){
